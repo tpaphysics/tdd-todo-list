@@ -1,6 +1,8 @@
+import { ChakraProvider } from '@chakra-ui/react';
 import '@testing-library/jest-dom';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect } from 'vitest';
+import { custonTheme } from '../../styles/custonTheme';
 import Counter from './Counter';
 
 describe('Simple App test', () => {
@@ -19,5 +21,16 @@ describe('Simple App test', () => {
     const { getByText } = render(<Counter />);
     fireEvent.click(getByText(/Decrement/i));
     expect(getByText(/Value=-1/i)).toBeInTheDocument();
+  });
+
+  it('Should button with text Increment should style with padding equal 0', () => {
+    const { getByText } = render(
+      <ChakraProvider theme={custonTheme}>
+        <Counter />
+      </ChakraProvider>,
+    );
+    expect(getByText(/increment/i)).toHaveStyle({
+      padding: '0',
+    });
   });
 });

@@ -8,7 +8,7 @@ function Counter() {
     <VStack w='100vw' h='100vh' justifyContent='center'>
       <h1>Value={count}</h1>
       <HStack>
-        <Button colorScheme='blackAlpha' onClick={decrement}>
+        <Button colorScheme='blackAlpha' onClick={decrement} padding='0'>
           Decrement
         </Button>
         <Button colorScheme='purple' onClick={increment}>
