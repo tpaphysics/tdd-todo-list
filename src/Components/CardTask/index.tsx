@@ -2,10 +2,13 @@ import { Box, Icon, Text } from '@chakra-ui/react';
 import React from 'react';
 import { CardTaskProps } from './interface';
 import { BsTrash } from 'react-icons/bs';
+import { useCardTask } from './hook/useCardTask';
 
-function CardTask({ task }: CardTaskProps) {
+function CardTask({ card, ...props }: CardTaskProps) {
+  const { checked, handleClickToogleCheck } = useCardTask(card.completed);
   return (
     <Box
+      {...props}
       w='calc(1.6180*200px)'
       bg='gray.600'
       h='50px'
@@ -15,11 +18,12 @@ function CardTask({ task }: CardTaskProps) {
       px='16px'
       borderColor='green.300'
       justifyContent='space-between'
-      borderLeft='5px solid'
+      borderLeft={checked ? '4px solid' : ''}
       borderLeftColor='green.300'
+      onClick={handleClickToogleCheck}
     >
       <Text color='whiteAlpha.800' fontWeight='600'>
-        {task}
+        {card.task}
       </Text>
       <Icon as={BsTrash} color='green.300' />
     </Box>

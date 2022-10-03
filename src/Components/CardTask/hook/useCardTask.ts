@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 
-export const useCardTask = () => {
-  const [checked, setChecked] = useState(false);
+export const useCardTask = (cardCompleted: boolean) => {
+  const [checked, setChecked] = useState(cardCompleted);
 
   const handleClickToogleCheck = useCallback(() => {
     setChecked(!checked);
