@@ -1,6 +1,6 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import { describe, expect } from 'vitest';
 import CardTask from '.';
 import uuid from 'react-uuid';
@@ -12,7 +12,7 @@ describe('CardTask test', () => {
     task: `tarefa-${uuid()}`,
     completed: true,
   } as CardData;
-  it('Should be the text on the document', () => {
+  it('Should be in the document the task text', () => {
     const { getByText } = render(
       <ChakraProvider>
         <CardTask card={card} />

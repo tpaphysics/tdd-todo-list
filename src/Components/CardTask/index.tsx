@@ -9,6 +9,8 @@ function CardTask({ card, ...props }: CardTaskProps) {
   return (
     <Box
       {...props}
+      data-testid={`card-${card.id}`}
+      cursor='pointer'
       w='calc(1.6180*200px)'
       bg='gray.600'
       h='50px'
