@@ -3,9 +3,9 @@ import { useCallback, useState } from 'react';
 export const useCardTask = () => {
   const [checked, setChecked] = useState(false);
 
-  const handleClickCheck = useCallback(() => {
+  const handleClickToogleCheck = useCallback(() => {
     setChecked(!checked);
   }, [checked]);
 
-  return { checked, setChecked, handleClickCheck };
+  return { checked, setChecked, handleClickToogleCheck };
 };

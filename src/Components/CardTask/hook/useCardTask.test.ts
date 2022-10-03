@@ -12,4 +12,13 @@ describe('useCardTask hook', () => {
     });
     expect(initialValue).toBe(false);
   });
+
+  it('Should be changed to true when the handleClickToogleCheck function is executed', () => {
+    const { result } = renderHook(() => useCardTask());
+
+    act(() => {
+      result.current.handleClickToogleCheck();
+    });
+    expect(result.current.checked).toBe(true);
+  });
 });
