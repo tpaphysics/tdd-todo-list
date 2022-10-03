@@ -1,7 +1,7 @@
-import Counter from './Components/Counter/Counter';
+import CardTask from './Components/CardTask';
 
 function App() {
-  return <Counter />;
+  return <CardTask task={'Tarefa 1'} />;
 }
 
 export default App;

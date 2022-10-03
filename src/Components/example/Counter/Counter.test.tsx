@@ -2,7 +2,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import '@testing-library/jest-dom';
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect } from 'vitest';
-import { custonTheme } from '../../styles/custonTheme';
+import { custonTheme } from '../../../styles/custonTheme';
 import Counter from './Counter';
 
 describe('Simple App test', () => {
