@@ -7,5 +7,5 @@ export const useCardTask = () => {
     setChecked(!checked);
   }, [checked]);
 
-  return { handleClickCheck };
+  return { checked, setChecked, handleClickCheck };
 };
