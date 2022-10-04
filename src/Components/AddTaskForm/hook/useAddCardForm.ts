@@ -17,5 +17,5 @@ export const useAddCardForm = () => {
     setTask('');
   }, [addCard, task]);
 
-  return { task, handleTaskChange, handleClickAddButton };
+  return { task, setTask, handleTaskChange, handleClickAddButton };
 };
