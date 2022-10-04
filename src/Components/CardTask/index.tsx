@@ -6,7 +6,7 @@ import { MdOutlineCheckBoxOutlineBlank, MdOutlineCheckBox } from 'react-icons/md
 import { useCardTask } from './hook/useCardTask';
 
 function CardTask({ card, ...props }: CardTaskProps) {
-  const { checked, handleClickToogleCheck } = useCardTask(card.completed);
+  const { checked, handleClickToogleCheck, handleRemoveCard } = useCardTask(card.completed);
   return (
     <Box
       {...props}
@@ -19,21 +19,19 @@ function CardTask({ card, ...props }: CardTaskProps) {
       display='flex'
       alignItems='center'
       px='16px'
-      borderColor='green.300'
+      borderColor='yellow.400'
       justifyContent='space-between'
       borderLeft={checked ? '2px solid' : ''}
-      borderLeftColor='green.300'
-      onClick={handleClickToogleCheck}
+      borderLeftColor='yellow.400'
     >
-      <HStack>
-        <Icon as={checked ? MdOutlineCheckBox : MdOutlineCheckBoxOutlineBlank} color='green.300' />
+      <HStack onClick={handleClickToogleCheck}>
+        <Icon as={checked ? MdOutlineCheckBox : MdOutlineCheckBoxOutlineBlank} color='yellow.400' />
         <Text color='whiteAlpha.800' fontWeight='600'>
           {card.task}
         </Text>
       </HStack>
-      <HStack></HStack>
 
-      <Icon as={BsTrash} color='green.300' />
+      <Icon as={BsTrash} color='yellow.400' onClick={() => handleRemoveCard(card.id)} />
     </Box>
   );
 }
