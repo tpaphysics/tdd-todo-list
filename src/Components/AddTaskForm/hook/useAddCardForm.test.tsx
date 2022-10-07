@@ -3,11 +3,9 @@ import { describe, vi } from 'vitest';
 import { act, renderHook } from '@testing-library/react';
 import { useAddCardForm } from './useAddCardForm';
 import * as hooks from '../../../global/useList';
-import { IListContext } from '../../../global/useList/context/interface';
 import ListProvider from '../../../global/useList/provider/ListProvider';
 import { BoxProps } from '@chakra-ui/react';
-import { MdAddReaction } from 'react-icons/md';
-import { CardData } from '../../../data/CardData.interface';
+
 import React from 'react';
 
 describe('useAddCardForm hook', () => {
@@ -37,17 +35,18 @@ describe('useAddCardForm hook', () => {
     expect(result.current.task).toBe('TASK');
   });
 
-  it('handleClickButton, Should be called once mockedAddCard', () => {
+  it('handleClickButton, Should be called once mockedAddList', () => {
     const wrapper = ({ children }: BoxProps) => <ListProvider>{children}</ListProvider>;
     const { result } = renderHook(() => useAddCardForm(), {
       wrapper,
     });
-    const spy = vi.spyOn(result.current, 'setTask');
+    const mockedUseList = vi
+      .spyOn(hooks, 'useList')
+      .mockImplementation(() => ({ AddCard: vi.fn() } as any));
 
     act(() => {
       result.current.handleClickAddButton();
     });
-    expect(spy).toBeCalledTimes(1);
     expect(mockedUseList).toBeCalledTimes(1);
   });
 });

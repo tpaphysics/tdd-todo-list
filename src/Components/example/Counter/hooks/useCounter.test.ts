@@ -1,6 +1,6 @@
 import { useCounter } from './userCounter';
 import '@testing-library/jest-dom';
-import { describe } from 'vitest';
+import { describe, vi } from 'vitest';
 import { act, renderHook } from '@testing-library/react';
 
 describe('useCount hook', () => {

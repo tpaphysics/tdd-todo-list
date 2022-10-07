@@ -8,5 +8,5 @@ export const useCounter = () => {
   const decrement = useCallback(() => {
     setCount((x) => x - 1);
   }, []);
-  return { count, increment, decrement };
+  return { count, setCount, increment, decrement };
 };
