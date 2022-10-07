@@ -1,7 +1,11 @@
-import { Flex } from '@chakra-ui/react';
+import { Flex, Heading, Icon, Text } from '@chakra-ui/react';
+import { BsListOl } from 'react-icons/bs';
+import { AiFillCloseCircle } from 'react-icons/ai';
+
 import AddTaskForm from './Components/AddTaskForm';
 import Cards from './Components/Cards';
 import ListProvider from './global/useList/provider/ListProvider';
+import HeaderList from './Components/HeaderList';
 
 function App() {
   return (
@@ -18,6 +22,7 @@ function App() {
         justifyContent='center'
         mt='80px'
       >
+        <HeaderList />
         <AddTaskForm />
         <Cards />
       </Flex>

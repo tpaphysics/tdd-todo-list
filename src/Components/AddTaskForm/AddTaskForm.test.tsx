@@ -1,12 +1,12 @@
 import '@testing-library/jest-dom';
-import { describe, vi } from 'vitest';
+import { describe } from 'vitest';
 import { render } from '@testing-library/react';
-import React from 'react';
+
 import ListProvider from '../../global/useList/provider/ListProvider';
 import AddTaskForm from '.';
 
 describe('AddCardFormvcomponent', () => {
-  it('Should be text Add in the document ""', () => {
+  it('Should be in the document the text Add', () => {
     const { getByText } = render(
       <ListProvider>
         <AddTaskForm />
