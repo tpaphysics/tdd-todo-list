@@ -29,4 +29,18 @@ describe('useListProvider hook', () => {
 
     expect(final).toBe(newCardMock);
   });
+
+  it('Should be removed card with specific id ', () => {
+    const cardsMock = cards;
+    const cardMockId = cards[0].id;
+
+    const { result } = renderHook(() => useListProvider(cardsMock));
+
+    act(() => {
+      result.current.removeCard(cardMockId);
+    });
+    const final = result.current.cards.filter((card) => card.id === cardMockId);
+
+    expect(final).toMatchObject([] as CardData[]);
+  });
 });
