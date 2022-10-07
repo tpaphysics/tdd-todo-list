@@ -2,13 +2,11 @@
 import '@testing-library/jest-dom';
 import { describe } from 'vitest';
 import { act, fireEvent, render } from '@testing-library/react';
-import useEvent from '@testing-library/user-event';
 
 import ListProvider from './ListProvider';
 import { useList } from '..';
 
 import { CardData } from '../../../data/CardData.interface';
-import { useEffect } from 'react';
 
 describe('useListProvider hook', () => {
   function TestMockComponent() {
@@ -28,14 +26,23 @@ describe('useListProvider hook', () => {
     );
   }
 
-  const { getByText } = render(
-    <ListProvider>
-      <TestMockComponent />
-    </ListProvider>,
-  );
-
   it('Should be card components into TestMockComponent', () => {
+    const { getByText } = render(
+      <ListProvider>
+        <TestMockComponent />
+      </ListProvider>,
+    );
     expect(getByText(/Tarefa 1/i)).toBeInTheDocument();
     expect(getByText(/Tarefa 2/i)).toBeInTheDocument();
+  });
+
+  it('Should be card task in TestMockComponent', () => {
+    const { getByText } = render(
+      <ListProvider>
+        <TestMockComponent />
+      </ListProvider>,
+    );
+    fireEvent.click(getByText('add'));
+    expect(getByText('new')).toBeInTheDocument();
   });
 });
