@@ -31,7 +31,12 @@ function CardTask({ card, ...props }: CardTaskProps) {
         </Text>
       </HStack>
 
-      <Icon as={BsTrash} color='yellow.400' onClick={() => handleRemoveCard(card.id)} />
+      <Icon
+        as={BsTrash}
+        color='yellow.400'
+        onClick={() => handleRemoveCard(card.id)}
+        data-testid={`close-task-${card.id}`}
+      />
     </Box>
   );
 }
