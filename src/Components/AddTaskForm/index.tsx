@@ -22,7 +22,12 @@ function AddTaskForm() {
         focusBorderColor='yellow.400'
         px='18px'
       />
-      <Button flex='1' colorScheme='yellow' onClick={handleClickAddButton}>
+      <Button
+        flex='1'
+        isDisabled={task === '' ? true : false}
+        colorScheme='yellow'
+        onClick={handleClickAddButton}
+      >
         Add
       </Button>
     </HStack>

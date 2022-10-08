@@ -13,10 +13,10 @@ describe('TodoList test', () => {
     expect(getByText(/my list/i)).toBeInTheDocument();
   });
 
-  it('Should remove task when click in task trash', () => {
+  it('Should be disble add button when input task is empty', () => {
     const { getByText, getByTestId } = render(<TodoList />);
-    fireEvent.click(getByTestId('close-task-1'));
+    fireEvent.input(getByTestId('list-input'), { target: { value: '' } });
 
-    expect(() => getByText(/tarefa 1/i)).toThrow();
+    expect(getByText(/add/i).closest('button')).toBeDisabled();
   });
 });
