@@ -7,8 +7,11 @@ import ListProvider from './ListProvider';
 import { useList } from '..';
 
 import { CardData } from '../../../data/CardData.interface';
+import cards from '../../../data/cards';
 
 describe('useListProvider hook', () => {
+  const mockCardId = cards[0].id;
+  const mockNewCard = { id: '123', completed: false, task: 'new' } as CardData;
   function TestMockComponent() {
     const { cards, addCard, removeCard } = useList();
     return (
@@ -18,10 +21,8 @@ describe('useListProvider hook', () => {
             <li key={card.id}>{card.task}</li>
           ))}
         </div>
-        <button onClick={() => addCard({ id: '123', completed: false, task: 'new' } as CardData)}>
-          add
-        </button>
-        <button onClick={() => removeCard(cards[0].id)}>remove</button>
+        <button onClick={() => addCard(mockNewCard)}>add</button>
+        <button onClick={() => removeCard(mockCardId)}>remove</button>
       </>
     );
   }
@@ -44,5 +45,14 @@ describe('useListProvider hook', () => {
     );
     fireEvent.click(getByText('add'));
     expect(getByText('new')).toBeInTheDocument();
+  });
+  it('Should remove task of the TestMockComponent', () => {
+    const { getByText } = render(
+      <ListProvider>
+        <TestMockComponent />
+      </ListProvider>,
+    );
+    fireEvent.click(getByText('remove'));
+    expect(() => getByText('Tarefa 1')).toThrow();
   });
 });

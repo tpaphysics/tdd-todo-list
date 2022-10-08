@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import ListProvider from '../../global/useList/provider/ListProvider';
 import AddTaskForm from '.';
 
-describe('AddCardFormvcomponent', () => {
+describe('AddCardForm component', () => {
   it('Should be in the document the text Add', () => {
     const { getByText } = render(
       <ListProvider>
