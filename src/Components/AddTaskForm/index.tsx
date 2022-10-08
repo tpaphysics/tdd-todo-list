@@ -7,6 +7,7 @@ function AddTaskForm() {
   return (
     <HStack>
       <Input
+        data-testId='list-input'
         value={task}
         onChange={handleTaskChange}
         variant='flushed'

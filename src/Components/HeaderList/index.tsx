@@ -9,7 +9,7 @@ function HeaderList() {
       <Flex alignItems='center'>
         <Icon as={BsListOl} color='yellow.300' h='5' w='5' />
         <Text ml='8px' fontSize='lg' color='whiteAlpha.600' fontWeight='extrabold'>
-          {`Lista`}
+          {`List`}
         </Text>
       </Flex>
       <Icon

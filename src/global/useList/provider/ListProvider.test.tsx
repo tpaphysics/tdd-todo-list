@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import '@testing-library/jest-dom';
 import { describe } from 'vitest';
-import { act, fireEvent, render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 
 import ListProvider from './ListProvider';
 import { useList } from '..';
