@@ -25,7 +25,7 @@ This **Todo List** project was developed as an exercise to develop TDD architect
 <img src="./public/tree.png" alt="desktop" width="200px"/>
 </p>
 
-Each component that has react state has a hook folder to separate the business rule from the TSX component states. This way we were able to test the hooks with the React Testing Library. Additional functions can be created in the utils folder as in the example below:
+Each component that has react state has a hook folder to separate the business rule from the TSX component states. This way we were able to test the hooks with the [React Testing Library](https://react-hooks-testing-library.com/). Additional functions can be created in the utils folder as in the example below:
 
 **_index.tsx_**
 
@@ -163,6 +163,36 @@ describe('useAddCardForm hook', () => {
       result.current.handleClickAddButton();
     });
     expect(mockedUseList).toBeCalledTimes(1);
+  });
+});
+```
+
+## **🧐 Todo list test**
+
+```tsx
+describe('TodoList test', () => {
+  it('Should add task when write input and click in add button', () => {
+    const { getByText, getByTestId } = render(<TodoList />);
+    fireEvent.input(getByTestId('list-input'), { target: { value: 'My List' } });
+    fireEvent.click(getByText(/add/i));
+
+    expect(getByText(/my list/i)).toBeInTheDocument();
+  });
+
+  it('Should be disble add button when input task is empty', () => {
+    const { getByText, getByTestId } = render(<TodoList />);
+    fireEvent.input(getByTestId('list-input'), { target: { value: '' } });
+
+    expect(getByText(/add/i).closest('button')).toBeDisabled();
+  });
+
+  it('Should it remove task when click in trash button', () => {
+    const mockedCardId = cards[0].id;
+    const { getByTestId } = render(<TodoList />);
+
+    fireEvent.click(getByTestId(`close-task-${mockedCardId}`));
+
+    expect(() => getByTestId(`close-task-${mockedCardId}`)).toThrow();
   });
 });
 ```
