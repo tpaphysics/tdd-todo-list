@@ -1,6 +1,5 @@
-import { ChakraProvider } from '@chakra-ui/react';
 import '@testing-library/jest-dom';
-import { getByText, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { describe } from 'vitest';
 import ListProvider from '../../global/useList/provider/ListProvider';
 import Cards from '../Cards/index';
