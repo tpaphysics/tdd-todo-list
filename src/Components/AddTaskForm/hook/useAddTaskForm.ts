@@ -4,7 +4,7 @@ import { CardData } from '../../../data/CardData.interface';
 import { useList } from '../../../global/useList';
 import { formatMax } from '../utils/utils';
 
-export const useAddCardForm = () => {
+export const useAddTaskForm = () => {
   const [task, setTask] = useState('');
   const { addCard } = useList();
 

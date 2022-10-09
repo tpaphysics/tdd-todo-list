@@ -1,9 +1,9 @@
 import { HStack, Input, Button } from '@chakra-ui/react';
 import React from 'react';
-import { useAddCardForm } from './hook/useAddCardForm';
+import { useAddTaskForm } from './hook/useAddTaskForm';
 
 function AddTaskForm() {
-  const { task, handleTaskChange, handleClickAddButton } = useAddCardForm();
+  const { task, handleTaskChange, handleClickAddButton } = useAddTaskForm();
   return (
     <HStack>
       <Input
