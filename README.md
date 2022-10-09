@@ -87,19 +87,6 @@ export const useAddCardForm = () => {
 };
 ```
 
-**_AddTaskForm.utils.test.ts_**
-
-```typescript
-describe('utils functions', () => {
-  it('Should be return task with length equal 28, formatMax', () => {
-    const max = 28;
-    const mockedTask = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa'; // length equal 28
-    const res = formatMax(mockedTask);
-    expect(res.length).toBe(max);
-  });
-});
-```
-
 **_utils.ts_**
 
 ```typescript
@@ -167,7 +154,7 @@ describe('useAddCardForm hook', () => {
 });
 ```
 
-## **🧐 Todo list test**
+## **🧐 Test **_TodoList.tsx_** component**
 
 ```tsx
 describe('TodoList test', () => {
@@ -196,6 +183,10 @@ describe('TodoList test', () => {
   });
 });
 ```
+
+## **💥 Considerations**
+
+Frontend tests help standardize and minimize errors, improving user experience. It facilitates group work between development teams and contributes to a scalable and quality final solution.
 
 ## Get Started
 
