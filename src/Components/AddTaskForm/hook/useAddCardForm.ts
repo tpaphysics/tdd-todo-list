@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import uuid from 'react-uuid';
 import { CardData } from '../../../data/CardData.interface';
 import { useList } from '../../../global/useList';
+import { formatMax } from '../utils/utils';
 
 export const useAddCardForm = () => {
   const [task, setTask] = useState('');
@@ -12,7 +13,8 @@ export const useAddCardForm = () => {
   }, []);
 
   const handleClickAddButton = useCallback(() => {
-    const newCard = { id: uuid(), task, completed: false } as CardData;
+    const format = formatMax(task);
+    const newCard = { id: uuid(), task: format, completed: false } as CardData;
     addCard(newCard);
     setTask('');
   }, [addCard, task]);
