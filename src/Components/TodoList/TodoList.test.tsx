@@ -2,7 +2,6 @@ import '@testing-library/jest-dom';
 import { describe, expect } from 'vitest';
 import { fireEvent, render } from '@testing-library/react';
 import TodoList from '.';
-import cards from '../../data/cards';
 
 describe('TodoList test', () => {
   it('Should add task when write input and click in add button', () => {
