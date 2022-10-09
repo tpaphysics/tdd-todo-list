@@ -15,10 +15,10 @@ function TodoList() {
         w='100%'
         maxW='calc(1.6180*200px + 32px)'
         borderRadius='5px'
-        m='0 auto'
         p='16px'
         justifyContent='center'
-        mt='80px'
+        m='0 auto'
+        mt='120px'
       >
         <HeaderList />
         <AddTaskForm />
