@@ -1,5 +1,5 @@
 {
-  "name": "todo-list-design-pattern-test",
+  "name": "tdd-todo-list",
   "private": true,
   "version": "0.0.0",
   "eslintIgnore": [

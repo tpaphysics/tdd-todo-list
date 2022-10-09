@@ -22,7 +22,7 @@
 This **Todo List** project was developed as an exercise to develop TDD architecture skills in frontend development. An own design pattern was created. The folder structure is as follows:
 
 <p align="center">
-<img src="./public/tree.png" alt="desktop" width="200px"/>
+<img src="./public/tree.png" alt="tree"/>
 </p>
 
 Each component that has react state has a hook folder to separate the business rule from the TSX component states. This way we were able to test the hooks with the [React Testing Library](https://react-hooks-testing-library.com/). Additional functions can be created in the utils folder as in the example below:
